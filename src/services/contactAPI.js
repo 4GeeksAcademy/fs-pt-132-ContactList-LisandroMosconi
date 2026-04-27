@@ -46,6 +46,24 @@ contactAPI.createContact = async (dispatch, contact) => {
     }
 };
 
+contactAPI.editContact = async (dispatch, contact) => {
+    try {
+        const resp = await fetch(url + "/agendas/lisandro/contacts/", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(contact)
+        });
+
+        if (!resp.ok) throw new Error("Error editing contact");
+
+        contactAPI.getContacts(dispatch);
+
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 
 export default contactAPI
