@@ -22,7 +22,6 @@ export const Home = () => {
 		<div className="text-center mt-5">
 			<h1>Contact list</h1>
 
-			<Link to='/creation'>Create a new Contact</Link>
 			<button onClick={handleNavigate}>Create contact</button>
 			{
 				store.contacts.map((contact) => (
